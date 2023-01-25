@@ -1,0 +1,26 @@
+name: 'deploy'
+
+on:
+  push:
+    branches:
+      - '**'
+
+    tags:
+      - '**'
+
+env:
+  DEV_PROJECT_ID: dev-project
+  DEV_FB_PROJECT_ID: dev-project-fb
+  PROD_PROJECT_ID: prod-project
+  PROD_FB_PROJECT_ID: prod-project-fb
+
+jobs:
+ 
+  test-work:
+    name: Test
+    runs-on: ubuntu-latest
+    steps: 
+     - name: check_PROD
+       run: |
+            echo "this is ${{ github.ref}}"
+            echo "COUNT is ${git log --pretty=format:'' | wc -l}"
