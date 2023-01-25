@@ -19,14 +19,16 @@ jobs:
   test-work:
     name: Test
     runs-on: ubuntu-latest
+  
     steps: 
      - name: checkout
        uses: actions/checkout@v2
        with:
          fetch-depth: 0
-          
+
      - name: check_PROD
        run: |
             echo "this is ${{ github.ref}}"
             count=$(git rev-list --count ${{ github.ref}})
             echo "COUNT is $count"
+
