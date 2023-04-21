@@ -24,7 +24,7 @@ jobs:
          echo "check is: "
          echo ${check}
 
-         echo "check=${check}" >> $GITHUB_OUTPUT
+         echo "check=${check}" >> "$GITHUB_OUTPUT"
 
   check-work:
      if: ${{needs.Test.outputs.check == 'true'}}
