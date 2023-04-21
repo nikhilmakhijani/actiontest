@@ -1,4 +1,4 @@
-name: 'deploy'
+name: 'new'
 
 on:
   push:
@@ -9,30 +9,20 @@ on:
       - '**'
 
 jobs:
- 
-  test-work:
-    name: Test
+  job1:
     runs-on: ubuntu-latest
+    # Map a step output to a job output
     outputs:
-      check: ${{ steps.getenvs.outputs.check }}
-  
+      output1: ${{ steps.step1.outputs.test }}
+      output2: ${{ steps.step2.outputs.test }}
     steps:
-     - name: Get ENV
-       id: getenvs
-       run: |
-         check="true"
-         echo "check is: "
-         echo ${check}
-
-         echo "check=true" >> "$GITHUB_OUTPUT"
-
-  check-work:
-     if: needs.Test.outputs.check == 'true'
-     name: check
-     runs-on: ubuntu-latest
-
-     steps:
-      - name: Get ENV
-        id: dhoom
-        run: |
-         echo "YOLOOOOO"
+      - id: step1
+        run: echo "test=hello" >> "$GITHUB_OUTPUT"
+      - id: step2
+        run: echo "test=world" >> "$GITHUB_OUTPUT"
+  job2:
+    if: ${{needs.job1.outputs.output1}} == "hello"
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+        run: echo "$OUTPUT1 $OUTPUT2"
