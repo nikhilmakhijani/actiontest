@@ -35,4 +35,4 @@ jobs:
       - name: Get ENV
         id: dhoom
         run: |
-         echo "YOLOOOOO "
+         echo "YOLOOOOO"
