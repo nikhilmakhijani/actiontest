@@ -27,7 +27,7 @@ jobs:
          echo "check=true" >> "$GITHUB_OUTPUT"
 
   check-work:
-     if: ${{needs.Test.outputs.check == 'true'}}
+     if: needs.Test.outputs.check == 'true'
      name: check
      runs-on: ubuntu-latest
 
