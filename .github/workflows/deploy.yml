@@ -33,6 +33,6 @@ jobs:
 
      steps:
       - name: Get ENV
-        id: getenvs
+        id: dhoom
         run: |
          echo "YOLOOOOO "
