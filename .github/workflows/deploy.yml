@@ -8,27 +8,31 @@ on:
     tags:
       - '**'
 
-env:
-  DEV_PROJECT_ID: dev-project
-  DEV_FB_PROJECT_ID: dev-project-fb
-  PROD_PROJECT_ID: prod-project
-  PROD_FB_PROJECT_ID: prod-project-fb
-
 jobs:
  
   test-work:
     name: Test
     runs-on: ubuntu-latest
+    outputs:
+      check: ${{ steps.getenvs.outputs.check }}
   
-    steps: 
-     - name: checkout
-       uses: actions/checkout@v2
-       with:
-         fetch-depth: 0
-
-     - name: check_PROD
+    steps:
+     - name: Get ENV
+       id: getenvs
        run: |
-            echo "this is ${{ github.ref}}"
-            count=$(git rev-list --count ${{ github.ref}})
-            echo "COUNT is $count"
+         check="true"
+         echo "check is: "
+         echo ${check}
 
+         echo "check=${check}" >> $GITHUB_OUTPUT
+
+  check-work:
+     if: needs.getenvironments.outputs.check == "true"
+     name: check
+     runs-on: ubuntu-latest
+
+     steps:
+      - name: Get ENV
+        id: getenvs
+        run: |
+         echo "YOLOOOOO "
