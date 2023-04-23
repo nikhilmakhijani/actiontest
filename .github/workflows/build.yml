@@ -3,10 +3,10 @@ name: Deploy to Artifact Registry
 on:
   push:
     branches:
-      - main
+      - test
 
 env:
-  PROJECT_ID: <your-project-id>
+  PROJECT_ID: engaged-hook-384215
   REGION: us-central1
   ARTIFACT_REGISTRY: us-central1-docker.pkg.dev/engaged-hook-384215/test-yo
   SERVICE_ACCOUNT: test-sa@engaged-hook-384215.iam.gserviceaccount.com
