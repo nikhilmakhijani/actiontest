@@ -39,8 +39,8 @@ jobs:
       - name: Build and push image to Artifact Registry
         run: |
           # Build your code here
-          docker build -t ${{ env.ARTIFACT_REGISTRY }}/img:v1 my-app/.
-          docker push ${{ env.ARTIFACT_REGISTRY }}/img:v1 my-app/.
+          docker build -t us-central1-docker.pkg.dev/engaged-hook-384215/test-yo/img:v1 my-app/.
+          docker push us-central1-docker.pkg.dev/engaged-hook-384215/test-yo/img:v1 my-app/.
 
 
 # name: Set up Docker Build id: buildx uses: docker/setup-buildx-action@v2
