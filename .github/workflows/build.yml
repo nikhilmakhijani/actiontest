@@ -47,8 +47,8 @@ jobs:
       - name: Build and push image to Artifact Registry
         run: |
           # Build your code here
-          docker build -t ${{ env.ARTIFACT_REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}/img:v2 my-app/.
-          docker push us-central1-docker.pkg.dev/engaged-hook-384215/test-yo/img:v2
+          docker build -t ${{ env.ARTIFACT_REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:v2 my-app/.
+          docker push us-central1-docker.pkg.dev/engaged-hook-384215/test-yo/testimg:v2
      
       - name: Deploy App
         run: |
@@ -58,7 +58,7 @@ jobs:
             --revision-suffix=${SUFFIX} \
             --project=$(PROJECT_ID) \
             --set-env-vars=CP_PROJECT_ID=$(PROJECT_ID) |
-            --image="${{ env.ARTIFACT_REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}/img:v2" \
+            --image="${{ env.ARTIFACT_REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:v2" \
             -allow-unauthenticated \
             --region=us-central1 \
             --ingress=all \
