@@ -52,7 +52,7 @@ jobs:
      
       - name: Deploy App
         run: |
-          PROJECT_ID=$ (gcloud config get-value project)
+          PROJECT_ID=$(gcloud config get-value project)
           SUFFIX="test"
           gcloud run deploy api \
             --revision-suffix=${SUFFIX} \
