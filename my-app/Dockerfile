@@ -4,17 +4,12 @@ FROM node:14
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+# Copy the app.js file to the container
+COPY app.js .
 
-# Install dependencies
-RUN npm install
+# Make port 3000 available to the world outside this container
+EXPOSE 3000
 
-# Copy the rest of the application code to the working directory
-COPY . .
+# Start the app
+CMD [ "node", "app.js" ]
 
-# Expose port 80
-EXPOSE 80
-
-# Start the web server
-CMD [ "npm", "start" ]
