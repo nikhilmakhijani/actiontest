@@ -8,7 +8,7 @@ on:
 env:
   PROJECT_ID: engaged-hook-384215
   REGION: us-central1
-  ARTIFACT_REGISTRY: us-central1-docker.pkg.dev/engaged-hook-384215/test-yo
+  ARTIFACT_REGISTRY: us-central1-docker.pkg.dev
   SERVICE_ACCOUNT: test-sa@engaged-hook-384215.iam.gserviceaccount.com
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.3.0
         with:
-          workload_identity_pool: example-pool
+          workload_identity_pool: "projects/591365510460/locations/global/workloadIdentityPools/example-pool/providers/example-gh-provider"
           workload_identity_service_account: ${{ env.SERVICE_ACCOUNT }}
 
       - name: Authenticate with Artifact Registry
