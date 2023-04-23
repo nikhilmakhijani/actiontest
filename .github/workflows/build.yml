@@ -19,11 +19,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Google Cloud SDK
-        uses: google-github-actions/auth@v1
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
         with:
-          workload_identity_pool: "projects/591365510460/locations/global/workloadIdentityPools/example-pool/providers/example-gh-provider"
-          workload_identity_service_account: ${{ env.SERVICE_ACCOUNT }}
+          workload_identity_provider: "projects/591365510460/locations/global/workloadIdentityPools/example-pool/providers/example-gh-provider"
+          service_account: "${{ env.SERVICE_ACCOUNT }}"
 
       - name: Authenticate with Artifact Registry
         run: |
