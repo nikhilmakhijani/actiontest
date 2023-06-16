@@ -1,0 +1,18 @@
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment name'
+        required: true
+        options: 
+          - dev
+          - test
+          - prod
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Skip step based on environment
+        run: echo "This step will be skipped"
+        if: ${{ github.event.inputs.environment == 'prod' || github.event.inputs.environment == 'test' }}
