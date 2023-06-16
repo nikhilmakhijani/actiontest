@@ -14,5 +14,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Skip step based on environment
-        run: echo "This step will be skipped"
-        if: ${{ github.event.inputs.environment == 'prod' || github.event.inputs.environment == 'test' }}
+        run: echo "env is ${{ github.event.inputs.environment"
+        if: ${{ github.event.inputs.environment == 'prod' }}
