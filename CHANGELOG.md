@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/nikhilmakhijani/actiontest/compare/v1.1.0...v1.2.0) (2023-07-05)
+
+
+### Features
+
+* add id to action ([03948a5](https://github.com/nikhilmakhijani/actiontest/commit/03948a504b75a5c1e69099b2f7c3dfde65ccfd43))
+
 ## [1.1.0](https://github.com/nikhilmakhijani/actiontest/compare/v1.0.0...v1.1.0) (2023-07-05)
 
 
