@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/nikhilmakhijani/actiontest/compare/v1.0.0...v1.1.0) (2023-07-09)
+
+
+### Features
+
+* add github action ([a97faee](https://github.com/nikhilmakhijani/actiontest/commit/a97faeeafe0301a0610c0b38146a0b6f3b1d87c1))
+* update release ([0045efa](https://github.com/nikhilmakhijani/actiontest/commit/0045efa7e91293a4f2de745c468388d84a218b72))
+
 ## 0.1.0 (2023-07-05)
 
 
