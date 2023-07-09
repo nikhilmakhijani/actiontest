@@ -13,4 +13,4 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: nikhilmakhijani/sharedworkflow/.github/workflows/release-tag.yml
+      - uses: nikhilmakhijani/sharedworkflow/.github/workflows/release-tag.yml@main
